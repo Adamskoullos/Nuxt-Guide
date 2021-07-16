@@ -66,10 +66,12 @@ First make sure to have the latest versions of npm and Node as above.
    - Branch from the `Developer` branch
    - For new feature: feature/branchName
    - For fixes: hotFix/branchName
-5. Once created clone the new branch, cd into the directory where the repo will be added:
+5. Once created, clone the new branch, cd into the directory where the repo will be added:
 
 ```
 git clone url
 ```
 
 Once cloned, `npm install` to add all dependencies.
+
+Run dev server: `npm run dev`

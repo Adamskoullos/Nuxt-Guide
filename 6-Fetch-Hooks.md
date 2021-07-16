@@ -1,6 +1,6 @@
 # HTTP Requests
 
-Adding Axios to the Nuxt app is an option at the point of creation. Axios is similar to the JavaScript Fetch when working with Rest API's but has one key advantage.
+Adding Axios to the Nuxt app is an option at the point of app creation. Axios is similar to the JavaScript Fetch when working with Rest API's but has one key advantage.
 
 If there is an error at any point with the request or response Axios catches all and provides information that can be accessed via the request and response objects. These properties can be used to manage events.
 
@@ -24,9 +24,7 @@ These hooks are used to trigger the fetching of data at a particular point in a 
 
 Here are the docs for further reading: https://nuxtjs.org/docs/2.x/features/data-fetching
 
-8. fetch does not have access to the `context` so we do not need to pass the context in but we do use the `this` keyword when using `axios`. asyncData requires the context to be passed in, but we do not use the `this` keyword when using `axios`.
-
-There is not a one-size fits all here but each are good for different use cases.
+8. fetch does not have access to the `context` so we do not need to pass the context in but we do use the `this` keyword when using `axios`. asyncData requires the context to be passed in and we do not use the `this` keyword when using `axios`.
 
 **Example**:
 
@@ -59,3 +57,5 @@ export default{
    }
 }
 ```
+
+The above patterns are part of the larger VueX workflows covered in separate sections.

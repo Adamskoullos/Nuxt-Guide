@@ -32,7 +32,7 @@ Nuxt 2 can be built with Bootstrap-Vue which uses Boostrap 4.5 under the hood. V
 Vuetify has a grid system very similar to bootstrap, built under the hood with flex-box and also uses the 12-column approach. The syntax used however is more efficient and slightly more declarative:
 
 ```html
-<v-container>
+<v-container fluid>
   <v-row>
     <v-col col="12" md="6"> </v-col>
     <v-col col="12" md="6"> </v-col>

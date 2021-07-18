@@ -43,20 +43,3 @@ pages/
 <NuxtLink :to="`/posts/${post.id}`" />{{ post.name }}</NuxtLink>
 
 ```
-
-3. As the user clicks a specific post the lifecycle begins for the dynamic page component firing the `asyncData` hook. The example below pulls in the dynamic data and then the component mounts the DOM and renders the dynamic data making `_post.vue` dynamic.
-
-```js
-
-<script>
-  export default {
-    async asyncData({ params, $axios }) {
-      const post = await $axios.$get(`https://api.nuxtjs.dev/items/${params.post}`); // Note the params is the same as the dynamic page name (post) without the underscore
-      return { post }
-    }
-  }
-</script>
-
-```
-
-The above is just an example to illustrate routing of dynamic pages, not the workflow to pull data into a component. This is done via the larger workflows involving VueX which are covered separately.

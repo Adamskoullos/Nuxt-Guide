@@ -1,6 +1,6 @@
 # SCSS
 
-By default Nuxt 2 does not come with SCSS and there is no option to add this on creation, however we can easily add SCSS to our Nuxt 2 application:
+By default Nuxt 2 does not come with SCSS unless a component library (Vuetify) is added at creation, however we can easily add SCSS to our Nuxt 2 application:
 
 1. Install SASS within the project directory: `npm install --save-dev node-sass sass-loader`
 
@@ -39,3 +39,27 @@ Vuetify has a grid system very similar to bootstrap, built under the hood with f
   </v-row>
 </v-container>
 ```
+
+When adding Vuetify at project creation the `nuxt.config.js` file includes the SCSS array for global style-sheets within the Vuetify object:
+
+```js
+vuetify: {
+    customVariables: ['~/assets/scss/variables.scss', '~/assets/scss/test.scss'],
+    theme: {
+      dark: true,
+      themes: {
+        dark: {
+          primary: colors.blue.darken2,
+          accent: colors.grey.darken3,
+          secondary: colors.amber.darken3,
+          info: colors.teal.lighten1,
+          warning: colors.amber.base,
+          error: colors.deepOrange.accent4,
+          success: colors.green.accent3
+        }
+      }
+    }
+  },
+```
+
+Above: further global SCSS files can be added to this array.

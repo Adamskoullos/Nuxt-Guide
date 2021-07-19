@@ -1,6 +1,6 @@
 # VueX Overview
 
-The `store` folder contains the store and all store module for the application. There is no manual configuration, once a file is created within this folder Nuxt automates the configuration.
+The `store` folder contains the store modules for the application. There is no manual configuration, once a file is created within this folder Nuxt automates the configuration.
 
 A store with a single file uses `index.js` and contains:
 
@@ -51,7 +51,7 @@ This way the store is the single source of truth for the client and the whole ap
 
 The store can be structured depending on the size of the application and provisions for scalability. With that in mind it is good practice to separate data that is used in different parts of the application into namespace modules. This makes it easier to manage as an application grows.
 
-For horizontally large applications a good approach is to use `single file modules`, this is where each file is a module and contains **state**, **mutations**, **actions** and **getters**. This is a nice way to work as the workflow is all in one place.
+For horizontally large applications a good approach is to use `single file modules`, this is where each file is a module and contains **state**, **mutations**, **actions** and **getters**. This is a nice way to work as the workflows are all in one place.
 
 For vertically large applications where there are many workflows for data within a single module we can give the module a folder and break each: **state** **mutations** **actions** and **getters** out into their own files.
 

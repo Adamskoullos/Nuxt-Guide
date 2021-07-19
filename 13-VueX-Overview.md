@@ -81,4 +81,4 @@ Above: The first argument is the path to the function, `blog` is the module, `de
 
 - **dispatch** to `actions` > **commit** to `mutations` > **Set-data** to update the `state`
 
-- We use **getters** to access dynamic data within components
+- We use **getters** to access dynamic data within components, this way when the data is updated within the store it is also re-rendered to the DOM

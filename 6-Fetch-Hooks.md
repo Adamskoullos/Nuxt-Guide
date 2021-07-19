@@ -6,7 +6,7 @@ If there is an error at any point with the request or response Axios catches all
 
 In conjunction with JavaScript async/await and Axios, Nuxt also provides the `asyncData`, `fetch` (not to be mistaken with JS fetch HTTP request) and `nuxtServerInit` hooks.
 
-When using the `store` it is good practice to use the `nuxtServerInit` hook which fires on the server making the api call and grabbing all the required data before the pre-rendered files are sent to the client. This is the main pattern larger projects use which we will cover in detail in the workflows section. Below are some details regarding the `asyncData` and `fetch` hooks:
+When using the `store` it is good practice to use the `nuxtServerInit` hook which fires server-side making the api call and grabbing all the required data before the pre-rendered files are sent to the client. This is the main pattern larger projects use which we will cover in detail in the workflows section. Below are some details regarding the `asyncData` and `fetch` hooks:
 
 # asyncData hook vs fetch hook
 

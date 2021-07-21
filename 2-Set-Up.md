@@ -16,7 +16,7 @@ node -v
 nvm install node
 ```
 
-Once we have the latest version of Node installed we can cd into the local directory for the project and create the Nuxt app (npx comes shipped with npm):
+Once we have the latest version of Node installed we can cd into the directory where we want the local project and create the Nuxt app (npx comes shipped with npm):
 
 `npx create-nuxt-app projectName`
 
@@ -55,7 +55,7 @@ The above command is equivalent to creating a Vue project using the Vue CLI, thi
     - Circle
 11. Version Control: **Git**
 
-Once complete we can manually add and set-up SASS-loader and Bootstrap 5 (see in separate section)
+Once complete we can manually add and set-up SASS (see in separate section)
 
 # Creating a feature/hotfix branch for development
 

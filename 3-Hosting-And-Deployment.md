@@ -10,7 +10,7 @@ The code base is stored as normal within the AWS CodeCommit secure repo with the
 - Feature branches
 - Hot fix branches
 
-Both Staging and Master branches are hosted within AWS S3 buckets. AWS CloudFront CND is used for fast delivery of the app to users.
+Both Staging and Master branches are hosted within AWS S3 buckets. AWS CloudFront CDN is used for fast delivery of the app to users.
 
 AWS Amplify is the CLI/console used to manage the hosting and deployment. Each merge into either the Staging or Master branch triggers the automatic re-build and re-deployment of the front-end. This is done as a hot deploy so there is never any down time of live applications. AWS Amplify provides a powerful CLI as well as the console to easily view and monitor applications.
 

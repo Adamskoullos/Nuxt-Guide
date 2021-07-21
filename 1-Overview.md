@@ -7,7 +7,7 @@
 
 > Nuxt 3 is due to be released for production applications towards the end of 2021.
 
-Nuxt is a meta-framework built on top of Vue with many key advantages. It operates both on the server and the client. When used in Universal mode and hosted as a Statically Generated site we get SEO optimization, super fast initial load times and a native app-like user experience.
+Nuxt is a meta-framework built on top of Vue with many key advantages. It operates both on the server and the client. When used in Universal mode and hosted as a Statically Generated site we get tools for SEO, super fast initial load times and a native app-like user experience.
 
 Nuxt apps can be structured as:
 

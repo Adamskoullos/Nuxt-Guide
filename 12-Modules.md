@@ -9,4 +9,4 @@ Modules run at the beginning of a build and can be used for:
 - Fetching data
 - Changing the webpack configuration
 
-Files are loaded within the `nuxt.config.js` files within the `modules` array in the same way plugins are.
+Files are loaded within the `nuxt.config.js` file within the `modules` array in the same way plugins are.

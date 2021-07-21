@@ -23,12 +23,12 @@ Once we have the latest version of Node installed we can cd into the directory w
 The above command is equivalent to creating a Vue project using the Vue CLI, this triggers the create process within the terminal and Nuxt takes us through the options where we can structure the project:
 
 1. **JavaScript** or TypeScript
-2. Package manager: yarn or npm: **Use npm so everyone uses the same build command**
-3. Ui Framework: **For now we will be choosing none and installing Bootstrap 5 later**
+2. Package manager: yarn or npm:
+3. Ui Framework:
    - Vuetify etc
 4. Nuxt Modules
-   - Axios: **Yes**
-   - PWA: **Yes**
+   - Axios:
+   - PWA:
    - Content: A Git based headless CMS
 5. Linting Tools: **Choose what works for you in dev mode**
    - ESLint
@@ -36,11 +36,11 @@ The above command is equivalent to creating a Vue project using the Vue CLI, thi
    - Lint staged files
    - Style lint
    - CommitLint
-6. Testing Framework: **None for now, Jest will be introduced in the future**
+6. Testing Framework:
    - None
    - Jest (and others)
 7. Rendering Mode
-   - Universal SSR/SSG: **By default we choose Universal**
+   - Universal SSR/SSG:
    - SPA
 8. Deployment Target
    - Server Node.js hosting
@@ -55,7 +55,7 @@ The above command is equivalent to creating a Vue project using the Vue CLI, thi
     - Circle
 11. Version Control: **Git**
 
-Once complete we can manually add and set-up SASS (see in separate section)
+If Vuetify is added SCSS configuration is set up and any further SCSS files to be added to Vuetify within `nuxt.config.js`. If no component library, we can add SCSS and Bootstrap 5 after install.
 
 # Creating a feature/hotfix branch for development
 

@@ -26,7 +26,7 @@ link: [
 
 **Note**: The `%s` above within the `titleTemplate` is a dynamic prefix. Below we have page specific meta-tags, the home page name becomes the dynamic prefix.
 
-When using meta-tags at page level we add a `head(){}` to the exported object:
+When using meta-tags at page level we add a `head(){}` within the component script tags:
 
 ```js
 

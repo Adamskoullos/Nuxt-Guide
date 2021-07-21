@@ -39,9 +39,9 @@ export const getters = {
 
 There is a core process most workflows follow when updating the store:
 
-1. A function is called from a component (to update some data) `dispatching` a function within `actions`, this where any async code runs that interacts with API's and where any further logic is done in order to itemize changes in the store
+1. A function is called from a component (to update some data) `dispatching` a function within `actions`, this is where any async code runs that interacts with API's and where any further logic is done in order to itemize changes in the store
 2. Once the db has been updated or new data received successfully any changes to the store are `committed` to `mutations`.
-3. `mutations` directly updates the data within the store
+3. `mutations` directly updates the data within the `state`.
 
 The above overview is a broad stroke but essentially aims to maintain synchronization between the db and the store by consistently reconciling any changes.
 
@@ -64,6 +64,16 @@ computed:{
   counter(){
     return this.$store.state.cart.counter
   }
+}
+```
+
+Another way to access store state is to use the `mapState` method to grab state properties:
+
+```js
+import { mapState } from 'vuex';
+
+computed: {
+  ...mapState('counter')
 }
 ```
 

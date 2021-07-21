@@ -14,9 +14,9 @@ plugins need to be registered/loaded within the `nuxt.config.js` file within the
 plugins: ["@/plugins/file"];
 ```
 
-To access a plugins functions within the application we the `inject()` method.
+To access a plugins function within the application we use the `inject()` method.
 
-The `context`, and `inject` objects are passed into the `export default ()` function, we then have access to set-up the `inject` method:
+The `context`, and `inject` objects are passed into the `export default ()` function, we then have access to set-up the `inject` method.
 
 ```js
 inject("globalFlag", { pluginFunction });

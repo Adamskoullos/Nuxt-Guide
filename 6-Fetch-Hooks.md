@@ -1,63 +1,88 @@
-# HTTP Requests
+# Overview
 
-Adding Axios to the Nuxt app is an option at the point of app creation. Axios is similar to the JavaScript Fetch when working with Rest API's but has one key advantage.
+We can use different Nuxt fetch hooks depending on where the data is used within the app. For data that needs to be loaded on initial load and is used on multiple pages we want to load into the store. For data that is changed by the user within the db we also want this in the store. Some data is only used within one page or a single nested component. Some data is read only with a bit of client side filtering.
 
-If there is an error at any point with the request or response Axios catches all and provides information that can be accessed via the request and response objects. These properties can be used to manage events.
+There are three basic hooks:
 
-In conjunction with JavaScript async/await and Axios, Nuxt also provides the `asyncData`, `fetch` (not to be mistaken with JS fetch HTTP request) and `nuxtServerInit` hooks.
+1. asyncData
+2. fetch
+3. nuxtServerInit
 
-When using the `store` it is good practice to use the `nuxtServerInit` hook which fires server-side making the api call and grabbing all the required data before the pre-rendered files are sent to the client. This is the main pattern larger projects use which we will cover in detail in the workflows section. Below are some details regarding the `asyncData` and `fetch` hooks:
+**Note**: All the above hooks have access to the `Nuxt context` and all it's properties as the first argument, except `nuxtServerInit` where the Nuxt context is the second argument as the `VueX context` in this case is the first argument.
 
-# asyncData hook vs fetch hook
+## asyncData
 
-These hooks are used to trigger the fetching of data at a particular point in a components lifecycle.
+asyncData runs on the server and grabs the data so the data can be pre-rendered with the HTML before the page is sent to the client. asyncData can be used within the script of a page, not within a nested component or file within plugins. This data is accessible within the `created()` and `mounted()` hooks within the page component.
 
-1. asyncData fetches the data before the page is loaded allowing for redirects if there is an issue
-2. asyncData will not render the page until all the data has been fetched
-3. asyncData is used with the try/catch blocks
-4. asyncData does not have states (like fetch)
-5. asyncData can only be used on pages/views but fetch can be used anywhere including nested components. Therefore when using fetch, components can be self sufficient by pulling in the data they use which provides the ability to separate areas within a page with separate loading events and loading handlers.
+asyncData is similar to the `data(){}` object in that data that is returned in the object is directly accessible in the template.
 
-6. fetch does not utilise the try/catch block as it has request states one of them being `error`.
-7. fetch has a `$fetchState` that can be used as boolean switches within the template and operates at component level:
-   - **pending**
-   - **error**
-   - **timestamp**
+> asyncData can be run asynchronously with the use if async/await
 
-Here are the docs for further reading: https://nuxtjs.org/docs/2.x/features/data-fetching
+## fetch
 
-8. fetch does not have access to the `context` so we do not need to pass the context in but we do use the `this` keyword when using `axios`. asyncData requires the context to be passed in and we do not use the `this` keyword when using `axios`.
+The fetch hook also triggers on the server-side but can be run from code within a page, component or a plugin. fetch is one option when we want to initially load data into the store.
 
-**Note**: If Axios has been added at creation we do not need to import, but we do use the $ sign. If we have installed Axios after creation we need to import but we do not need to use the $ sign.
+The below example is within the script of the application landing page and loads all the required data into the store before using a computed property to pull the data into the page. This again is all pre-rendered:
 
-**Example**:
+**Note**: The store is accessed by destructing it from the context
+
+**Note**: `fetch` runs on the server so we need to require `axios` to have access to it
 
 ```js
-// fetch()
-export default{
-   async fetch(){
-   this.variable = await this.$axios.$get('url');
-   },
+const axios = require("axios");
+import { mapState } from "vuex";
 
-   data(){
-      return{
-         variable
-      }
+export default {
+  async fetch({ store }) {
+    const response = await axios.get("uri");
+    const data = response.data;
+
+    store.commit("SET-DATA", data);
+  },
+  computed: {
+     ...mapState({ "data" });
+  }
+//   'data' can now be used directly within the template
+};
+```
+
+## nuxtServerInit
+
+nuxtServerInit runs on the server-side and the code is located directly within `actions` within the `store`. This hook is a good option when loading data that is used on multiple pages and loads the data straight into the store ready to be used anywhere within the application.
+
+Example with single file store:
+
+```js
+const axios = require("axios");
+
+export const state = () => ({
+  data: [],
+});
+
+export const mutations = {
+  SET_DATA: (state, newData) => {
+    state.data = newData;
+  },
+};
+// The nuxtServerInit first argument is the store context, below 'commit' is being destructed
+export const actions = {
+  async nuxtServerInit({ commit }) {
+    const response = await axios.get("uri");
+    const data = response.data;
+
+    store.commit("SET_DATA", data);
+  },
+};
+```
+
+We can then access this data anywhere within the application:
+
+```js
+import { mapState } from "vuex";
+
+export default {
+   computed: {
+      ...mapState({ "data" });
    }
-}
-// ----------------------------------------------------
-// asyncData : axios and redirect have been destructed from the context object here
-export default{
-   async asyncData({ $axios, redirect }){
-      try{
-         const variable = await $axios.$get('url');
-         return{
-            variable
-         }
-      }
-      catch(error){
-         redirect('/error');
-      }
-   }
-}
+};
 ```

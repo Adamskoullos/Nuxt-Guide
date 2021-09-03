@@ -5,9 +5,9 @@
 ToC:
 
 - [Overview](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/1-Overview.md)
-- [Set-Up](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/2-Set-Up.md)
+- [Basic Set-Up](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/2-Set-Up.md)
+- [Setting Up SCSS, Bootstrap 5 & Error Page](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/2-Set-Up-part-2.md)
 - [Hosting & Deployment](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/3-Hosting-And-Deployment.md)
-- [SCSS](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/4-SCSS%2BVuetify.md)
 - [Routing Basics](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/5-Routing-Basics.md)
 - [Fetch Hooks](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/6-Fetch-Hooks.md)
 - [The Nuxt Context](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/7-Context.md)

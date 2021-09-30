@@ -38,3 +38,39 @@ asyncData({$config}){
 ```js
 this.$config.API;
 ```
+
+# Dynamic NODE_ENV with the use of a config.js file
+
+The `.env` file is kept for most variables including private variables, we will then move the `baseUrl` out of the `.env` file and add this to a new file: `config.js` within the root of the project.
+
+This code takes the current `node environment` and adds it as the value of `config` that is being exported.
+
+```js
+const config = {
+    development: { baseUrl: "http://mycoformations.local/api" },
+    production: { baseUrl: "production.com" },
+};
+
+const nodeEnv = process.env.NODE_ENV;
+
+module.exports = config[nodeEnv].baseUrl;
+```
+
+We then import `config.js` into `nuxt.config.js` and use the property as the value of the `baseUrl` within the `runtimeConfig` property:
+
+```js
+import config from './config';
+
+export default {
+  publicRuntimeConfig: {
+    baseUrl: config
+  },
+```
+
+We can then access the value within the app:
+
+```js
+this.$config.baseUrl;
+```
+
+The advantage to the above is that domains can be pre-set and do not need to be changed going from development to production.

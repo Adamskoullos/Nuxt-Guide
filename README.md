@@ -1,8 +1,10 @@
-# Nuxt-Guide
-
-### A reference guide moving from Vue to Nuxt
+## Nuxt Toolbox
 
 ToC:
+
+### Nuxt 3
+
+### Nuxt 2
 
 - [Overview](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/1-Overview.md)
 - [Basic Set-Up](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/2-Set-Up.md)

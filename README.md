@@ -2,7 +2,10 @@
 
 ### Nuxt 3
 
-- [Getting Data]()
+- [Getting Data](https://github.com/Adamskoullos/Nuxt-Guide/blob/main/nuxt-3/data-fetching.md)
+
+todo:
+
 - [State]()
 - [Hooks]()
 - [Context]()

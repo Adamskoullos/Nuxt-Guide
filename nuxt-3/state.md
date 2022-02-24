@@ -23,8 +23,8 @@ export const useCounter = () => useState < number > ("counter", () => 0);
 export const useColor = () => useState < string > ("color", () => "pink");
 ```
 
-Then easily access them within components:
+Then easily access them within components (within the `setup` script tags):
 
 ```ts
-<script setup>const color = useColor() // Same as useState('color')</script>
+const color = useColor(); // Same as useState('color')
 ```

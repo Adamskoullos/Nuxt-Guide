@@ -11,14 +11,25 @@
 **[docs](https://v3.nuxtjs.org/docs/usage/data-fetching/)**
 
 - [$fetch]()
-- [useAsyncData]()
-- [useFetch]()
+- [useAsyncData](#useAsyncData)
+- [useFetch](#useFetch)
+
+---
+
+### $fetch
+
+`$fetch` is a globally available helper function to call API routes:
+
+- Automatic parsing of JSON
+- Content-Type headers are added
+- Uses `ohmyfetch` under the hood
+- Can be used on the `client` and the `server`
 
 ---
 
 ### useAsyncData
 
-- Can be used in `components` and `pages`
+> Can be used in `components`, `pages` and `Plugins`
 
 Core elements:
 
@@ -56,7 +67,9 @@ const { data } = await useAsyncData('count', () => $fetch('/api/count'));
 
 ### useFetch
 
-`usefetch` is a wrapper function which take advantage of both `useAsyncData` and `$fetch`:
+> Can be used in `Pages`, `Components` and `Plugins`
+
+`usefetch` is a wrapper function which takes advantage of both `useAsyncData` and `$fetch`:
 
 ```js
 const { data, pending, refresh, error } = useFetch(url, options);
@@ -77,7 +90,7 @@ const { data, pending, refresh, error } = useFetch(url, options);
 
 Basic example taken from the docs:
 
-```js
+```ts
 <script setup>
 const { data } = await useFetch('/api/count')
 </script>
